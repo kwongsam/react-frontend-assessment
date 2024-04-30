@@ -8,8 +8,8 @@ describe("Add Task Modal", () => {
   let mockCloseModal: () => void;
 
   beforeEach(() => {
-    mockOnSubmit = jest.fn();
-    mockCloseModal = jest.fn();
+    mockOnSubmit = vi.fn();
+    mockCloseModal = vi.fn();
     render(
       <AddTaskModal onSubmit={mockOnSubmit} closeModal={mockCloseModal} />
     );
