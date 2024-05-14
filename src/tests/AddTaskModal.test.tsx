@@ -16,39 +16,39 @@ describe("Add Task Modal", () => {
   });
 
   // TODO: Step 6
-  it.skip("allows a user to fill in a task title in the Task Title input", () => {
+  it.skip("allows a user to fill in a task title in the Task Title input", async () => {
     const inputElement = screen.getByLabelText(
       "Task Title"
     ) as HTMLInputElement;
 
-    userEvent.type(inputElement, "Testing");
+    await userEvent.type(inputElement, "Testing");
 
     expect(inputElement).toHaveValue("Testing");
   });
 
   // TODO: Step 7
-  it.skip("disables the submit button if required fields are not filled", () => {
-    userEvent.type(screen.getByLabelText("Task Title"), "");
+  it.skip("disables the submit button if required fields are not filled", async () => {
+    await userEvent.type(screen.getByLabelText("Task Title"), "");
 
     expect(screen.getByText("Submit")).toBeDisabled();
   });
 
   // TODO: Step 8
-  it.skip("enables submit button if required fields are provided", () => {
+  it.skip("enables submit button if required fields are provided", async () => {
     const titleInput = screen.getByLabelText("Task Title") as HTMLInputElement;
 
-    userEvent.type(titleInput, "Test Title");
+    await userEvent.type(titleInput, "Test Title");
 
     expect(titleInput.value).toEqual("Test Title");
     expect(screen.getByText("Submit")).not.toBeDisabled();
   });
 
   // TODO: Step 9
-  it.skip("calls onSubmit with the proper input values when Submit is clicked", () => {
+  it.skip("calls onSubmit with the proper input values when Submit is clicked", async () => {
     const titleInput = screen.getByLabelText("Task Title") as HTMLInputElement;
 
-    userEvent.type(titleInput, "Test Title");
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.type(titleInput, "Test Title");
+    await userEvent.click(screen.getByText("Submit"));
 
     expect(mockOnSubmit).toHaveBeenCalledWith({
       title: "Test Title",
@@ -57,18 +57,18 @@ describe("Add Task Modal", () => {
   });
 
   // TODO: Step 10
-  it.skip("clears the task title field when submit is clicked", () => {
+  it.skip("clears the task title field when submit is clicked", async () => {
     const titleInput = screen.getByLabelText("Task Title") as HTMLInputElement;
 
-    userEvent.type(titleInput, "Test Title");
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.type(titleInput, "Test Title");
+    await userEvent.click(screen.getByText("Submit"));
 
     expect(titleInput.value).toEqual("");
   });
 
   // TODO: Step 11
-  it.skip("calls closeModal when the 'Cancel' button is clicked", () => {
-    userEvent.click(screen.getByText("Cancel"));
+  it.skip("calls closeModal when the 'Cancel' button is clicked", async () => {
+    await userEvent.click(screen.getByText("Cancel"));
 
     waitFor(() => expect(mockCloseModal).toHaveBeenCalled());
   });
