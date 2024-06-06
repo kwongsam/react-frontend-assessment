@@ -27,21 +27,19 @@ describe("Add Task Modal", () => {
   });
 
   // TODO: Step 7
-  it.skip("disables the submit button if required fields are not filled", async () => {
-    await userEvent.type(screen.getByLabelText("Task Title"), "");
-
-    expect(screen.getByText("Submit")).toBeDisabled();
+  it.skip('disables the submit button if required fields are not filled', async () => {
+    expect(screen.getByText('Submit')).toBeDisabled()
   });
 
   // TODO: Step 8
-  it.skip("enables submit button if required fields are provided", async () => {
-    const titleInput = screen.getByLabelText("Task Title") as HTMLInputElement;
+  it.skip('enables submit button if required fields are provided', async () => {
+    const titleInput = screen.getByLabelText('Task Title') as HTMLInputElement
 
-    await userEvent.type(titleInput, "Test Title");
+    await userEvent.type(titleInput, 'Test Title')
 
-    expect(titleInput.value).toEqual("Test Title");
-    expect(screen.getByText("Submit")).not.toBeDisabled();
-  });
+    expect(titleInput.value).toEqual('Test Title')
+    expect(screen.getByText('Submit')).not.toBeDisabled()
+  })
 
   // TODO: Step 9
   it.skip("calls onSubmit with the proper input values when Submit is clicked", async () => {
